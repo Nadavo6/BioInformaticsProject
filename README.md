@@ -1,20 +1,64 @@
 # BioInformaticsProject
 BioInformatics Project - analyzing clusters in Plasmids and Chromosomes of Bacteria.
 The Goal : finding discriminative (non-collinear) gene clusters.
+Gene Cluster Discovery and Comparative Analysis
+Project Summary
+This project aims to design and implement an efficient algorithm to discover conserved gene clusters in bacterial genomes, focusing on both plasmid and chromosomal datasets. The project is divided into two main parts: gene cluster discovery and comparative analysis of gene clusters between different genome sets.
 
-Part One:
+Goals
+Gene Cluster Discovery:
 
-a. Design an efficient algorithm (the more efficient, the better!) and write a program that does the following: Given a set of COG-spelled genomes S, where each genome is segmented into segments such that each segment could contain one or more operons (a line in the files “cog_words_plasmid” corresponds to one segment of a genome, and the name\identifier of the genome appears in the same line. )See Example1 below). Also given parameters d, and q. Find all gene clusters 𝑤 (over the COG alphabet) of length 𝑑 that are conserved in ≥ 𝑞 of the genomes in the database 𝑆. Sort the gene clusters you found in decreasing order of abundance (i.e, the gene cluster with the largest number of instances should appear first in the sorted list).  
-b. Implement your algorithm as a program in Python using a Jupiter notebook (Online, via the Google Collab suite).  Document your code very clearly within the notebook. In addition, provide a “high level” description of your method\algorithm in the report (between 2 and 4 pages). 
-c. Write a subroutine that, given a gene cluster, computes and prints a descriptive “profile” of the cluster. For each cluster you report, the output should include a “characterization profile” including the following information (copy the line from the corresponding input file):  1. The rank of the gene cluster in the sorted list of all gene clusters found for the given parameters (d,q) and the input genome file (i.e., the first gene cluster in the sorted list of has rank the second has rank 2, etc.) and the number of instances it has among the  genomes in the input file. 2. Pattern information:  Print the set of COGs participating in the pattern of the gene cluster, ordered according to increasing COG id (i.e., {0811, 1629, 2814}).  For each COG in the pattern set, print the corresponding line from the “COG info table file”. 3. Report the various gene orders of the pattern in the instances and the percentage of instances found per each gene order. We do not mean taxonomic orders (as in the file “taxa.txt”), but rather  םינוש םירדס - different orders in which the COGs of the pattern appear in different instances. (Orders of a pattern are exemplified in the caption above Figure 1 below). For each of the distinct orders in which the gene cluster was found, report  distribution statistics of its abundance in phyla and habitats: A. Report the various phyla (i.e., the phylum to which the bacterial host of the plasmid genomes belong), and the percentage of instances per this order found in each phylum. Phylum name  is found in the second field of the corresponding line in file “taxa.txt”.  and the percentage of instances found in each phylum. 
-B. Report the environmental descriptions of the instances of the gene cluster in which the order is found and the percentage of instances of the gene cluster in which the order is found per each environmental category. 
-d. Run your program to extract all gene clusters of cardinality ranging from d=2 up to d=4, using q=5 from the file of plasmid genomes, and for each cardinality value,  report the 4 most abundant gene clusters found, sorted by decreasing abundance order per each value of d.  Print the reported gene clusters into an external output file (or inside the notebook) in a clear output format, producing a separate ourtput for each cardinality value d, sorted in decreasing order by the number of instances per each gene cluster. For each reported gene cluster per each value of d, the output should be very clear, and should include the descriptive profile information described in item c. (Submit the output files together with your code and your report, or alternatively include the requested output in the submitted notebook).  
-e. Your submission should include your documented code (preferably in a notebook), the output files (or print the requested output within the notebook), and a report of length 2-4 pages describing your algorithm and explaining why it is an efficient and correct solution to the gene cluster discovery problem.  The report can be in Hebrew, but you need to run “spellcheck” on it before submitting. Do not send me incremental versions of your report by email and ask me to give you comments... Instead, you are invited to schedule an office hour meeting (by ZOOM) and ask me questions directly. I will only read your report once, after you submit the final version. 
+Develop an efficient algorithm to identify gene clusters in bacterial genomes.
+Analyze the conservation of gene clusters across multiple genomes.
+Sort gene clusters by their abundance.
+Provide detailed characterization profiles for each discovered gene cluster.
+Comparative Analysis:
 
-Part Two :
+Clean and prepare genome data to include only genomes with plasmids.
+Propose and implement a novel approach to compare gene cluster profiles.
+Identify gene clusters with significantly different profiles between plasmid and chromosomal datasets.
+Data
+The project utilizes the following datasets:
 
-1. Data Preparation: “Clean” the file of bacterial genomes so that only genomes that have at least one plasmid in the data remain. (This data-cleaning process is intended to prevent bias by prokaryotic samples where only the chromosome is given and the plasmids were not sampled). Submit the cleaned bacterial genomes file together with your code and your report (zip up the files together).
-2. Your special comparative analysis approach for gene cluster profiles: Propose a (novel) approach to compare two gene cluster profiles  and produce a score (a number between 0 and 100) to measure how distinct the clusters are. Note that at this stage, you can creatively extend the definition of “characterization profile” beyond the information reported per gene cluster in Part 1 of the miniproject.  Provide a “high level” description of your proposed comparative profile analysis approach in the report.
-3. Implement your special comparative analysis approach within a program\pipeline that seeks gene clusters that “differ significantly” in their profiles between chromosome datasets and plasmid datasets:   Based on your code from Part 1, write a program\pipeline that solves the following problem in comparative analysis of gene cluster characterization profiles:  Given two COG-spelled sets of genomes S1 and S2, each in a separate file, and also given parameters: d – the number of genes in the sought gene cluster q1 – the required quorum for a gene cluster in genome set S1 (for example, the plasmid genome set). q2-  the required quorum for a gene cluster in genome set S2 (for example, the chromosome genome set). Objective: Find a gene-cluster GC  of cardinality d  that appears in at least q1 of the genomes in set S1, and also appears in at least q2 genomes of Set S2, such that the following requirement is obeyed: the characterization profile of gene cluster GC in set S1 differs significantly from the characterization profile of the same gene cluster in set S2.   Make sure to document your code or pipeline very clearly. Provide a “high level” description of your method\algorithm\bioinformatic pipeline in the report and codedocumentation in the notebook.
-4. Experiment  with your program on the data files (i.e., run benchmarks with different values of d, q1, q2 and examine the results) till you find an interesting result:  Utilize your program\pipeline to find and report on a gene cluster that distinguishes  {S1 = Plasmid genomes}  versus {S2= the “cleaned” bacterial genomes}. Select values for d, q1 and q2 and justify your selection in the report (for example, since the chromosomal genomes are much longer and more conserved than the plasmid genomes, S1 could be much smaller than S2). Use the observations resulting from the comparison between the two gene cluster profiles and review existing literature (online) to try and provide (hypothesize) some biological explanation for your finding.
+COG-spelled genomes: Each genome is segmented into segments containing one or more operons.
+Taxa information: Includes phylum and environmental descriptions of bacterial hosts.
+COG info table: Provides detailed information about each COG.
+Implementation Steps
+Part One: Gene Cluster Discovery
+Algorithm Design:
 
+Design an efficient algorithm to find gene clusters of length d that are conserved in at least q genomes.
+Sort the discovered gene clusters by their abundance.
+Program Implementation:
+
+Implement the algorithm in Python using a Jupyter notebook.
+Document the code thoroughly within the notebook.
+Provide a high-level description of the algorithm in the report.
+Characterization Profile:
+
+Develop a subroutine to compute and print a descriptive profile for each gene cluster.
+Include the rank, pattern information, gene orders, and distribution statistics in the profile.
+Run the Program:
+
+Extract gene clusters of cardinality ranging from d=2 to d=4 using q=5.
+Report the four most abundant gene clusters for each cardinality value, including their descriptive profiles.
+Documentation:
+
+Submit the documented code, output files, and a detailed report explaining the algorithm's efficiency and correctness.
+Part Two: Comparative Analysis
+Data Preparation:
+
+Clean the bacterial genomes file to include only genomes with at least one plasmid.
+Comparative Profile Analysis:
+
+Propose a novel approach to compare gene cluster profiles and produce a distinctiveness score.
+Implement the comparative analysis approach within a program or pipeline.
+Implementation of Comparative Analysis:
+
+Develop a program to find gene clusters that differ significantly in their profiles between two genome sets (plasmid vs. chromosomal).
+Document the code and provide a high-level description of the method in the report.
+Experimentation and Results:
+
+Run benchmarks with different values of d, q1, and q2.
+Identify and report a gene cluster that distinguishes plasmid genomes from chromosomal genomes.
+Justify the parameter selection and hypothesize a biological explanation for the findings based on existing literature.
