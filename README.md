@@ -1,5 +1,3 @@
-Sure, here's a comprehensive README file for your GitHub repository:
-
 ---
 
 # Gene Cluster Discovery and Comparative Analysis
@@ -102,18 +100,9 @@ The project utilizes the following datasets:
 - The output files and detailed characterization profiles for the gene clusters are included in the `results` directory.
 - The final report detailing the algorithm, comparative analysis approach, and findings is available in the repository.
 
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License.
 
 ## Acknowledgments
 
 Special thanks to the course instructors and the community for their support and resources.
 
 ---
-
-Feel free to modify the content to better suit your needs or to add any additional sections as necessary.
