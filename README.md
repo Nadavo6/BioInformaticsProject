@@ -1,6 +1,3 @@
-# BioInformaticsProject
-BioInformatics Project - analyzing clusters in Plasmids and Chromosomes of Bacteria.
-The Goal : finding discriminative (non-collinear) gene clusters.
 Gene Cluster Discovery and Comparative Analysis
 Project Summary
 This project aims to design and implement an efficient algorithm to discover conserved gene clusters in bacterial genomes, focusing on both plasmid and chromosomal datasets. The project is divided into two main parts: gene cluster discovery and comparative analysis of gene clusters between different genome sets.
